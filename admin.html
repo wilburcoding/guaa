@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>GUAA Admin</title>
+  <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore-compat.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js';
+    import 'https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC3W2aSkpZHROW_BO2u6iWu1hIwNF8CfBw",
+      authDomain: "guaa-62ae2.firebaseapp.com",
+      projectId: "guaa-62ae2",
+      storageBucket: "guaa-62ae2.appspot.com",
+      messagingSenderId: "1024342009764",
+      appId: "1:1024342009764:web:d980d4e28bdc3d180f0331"
+    };
+    var app = firebase.initializeApp(firebaseConfig);
+
+    // const auth = getAuth(app);
+    const db = firebase.firestore(app);
+    let ids = []
+    $("#save1").on('click', function () {
+      var ref = db.collection("programs");
+      for (let id of ids) {
+        ref.doc(id).set({
+          title: $("#" + id + '2').val(),
+          desc: $("#" + id + '3').val(),
+          applyp: $("#" + id + '4').val(),
+          applyv: $("#" + id + '5').val(),
+        });
+      }
+      alert("Successful!")
+
+
+    })
+    $("#newprogram").on('click', function () {
+      if ($("#NEW1").val().length > 3) {
+        var ref = db.collection("programs");
+        let id = "NEW"
+        ref.doc($("#NEW1").val()).set({
+          title: $("#" + id + '2').val(),
+          desc: $("#" + id + '3').val(),
+          applyp: $("#" + id + '4').val(),
+          applyv: $("#" + id + '5').val(),
+        });
+        for (let i = 0; i < 5; i++) {
+          $("#NEW" + (i + 1)).val("")
+        }
+        window.location.reload()
+      } else {
+        alert("ID must be more than 3 characters long")
+      }
+    })
+    $("#deleteP").on("click", function () {
+      db.collection("programs").doc($("#dId").val()).delete().then(() => {
+        window.location.reload()
+      }).catch((error) => {
+        alert("Error deleting program, the ID may be incorrect");
+      });
+    })
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        const ALLOWLIST = ["growingupaapi@gmail.com", "ehsiao08@gmail.com", "jacki.ck.king@gmail.com", "wilburwei.2008@gmail.com"];
+        const EMAIL = firebase.auth().currentUser.email;
+        if (!ALLOWLIST.includes(EMAIL)) {
+          document.getElementById("main").innerHTML = "Your not allowed to be here..."
+          $("#main").css("display", "block");
+
+        } else {
+
+          $("#main").css("display", "block");
+          db.collection("programs").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              const data = doc.data();
+              const id = doc.id;
+              ids.push(id)
+              $("#programs").append(`
+              <div style="width:60%">
+                <table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Explanation</th>
+    <th>Participant Application Link</th>
+    <th>Volunteer Application Link</th>
+  </tr>
+  <tr>
+    <td>  <input type="text" value="${id}" id="${id}1" disabled></td>
+    <td>  <input type="text" value="${data.title}" id="${id}2" ></td>
+    <td>  <input type="text" value="${data.desc}" id="${id}3" ></td>
+    <td>  <input type="text" value="${data.applyp}" id="${id}4" ></td>
+    <td>  <input type="text" value="${data.applyv}" id="${id}5" ></td>
+  </tr>
+</table>
+              </div>
+              `)
+            });
+          });
+
+        }
+
+      } else {
+        var uiConfig = {
+          signInSuccessUrl: '/admin.html',
+          signInOptions: [
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID
+          ]
+        };
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        ui.start('#firebaseui-auth-container', uiConfig);
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div class="main-container" style="align-items: center;">
+    <h1>GUAA Admin</h1>
+    <div id="firebaseui-auth-container"></div>
+    <div id="main">
+      <h2>Programs</h2>
+      <button id="save1">Save</button>
+      <div id="programs">
+
+      </div>
+      <h4>Add New Program</h4>
+      <button id="newprogram">Add New Program</button>
+      <div style="width:60%">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Explanation</th>
+            <th>Participant Application Link</th>
+            <th>Volunteer Application Link</th>
+          </tr>
+          <tr>
+            <td> <input type="text" id="NEW1"></td>
+            <td> <input type="text" id="NEW2"></td>
+            <td> <input type="text" id="NEW3"></td>
+            <td> <input type="text" id="NEW4"></td>
+            <td> <input type="text" id="NEW5"></td>
+          </tr>
+        </table>
+      </div>
+      <h4>Delete Program</h4>
+      <input id="dId" type="text" placeholder="Program ID">
+      <button id="deleteP">Delete</button>
+    </div>
+
+</body>
+
+</html>
