@@ -1,0 +1,42 @@
+.backgroundImg {
+  width: 100%;
+  height: 100vh;
+  right: 0px;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  z-index: -1;
+
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: "Didact Gothic", sans-serif;
+  width: 100%;
+  margin:0;
+  padding:0;
+}
+
+.navBar {
+  height:70px;
+  width: 100%;
+  margin:0;
+  display:flex;
+  align-items: center;
+}
+
+#navLinks {
+  margin-right:5vw;
+  margin-left:auto;
+  display:flex;
+  
+  flex-direction: row;
+  align-items: center;
+
+}
+#navLinks h4 {
+  margin-left:10vw;
+  font-size:22px;
+  font-weight: 600;
+}
