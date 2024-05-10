@@ -26,7 +26,6 @@
       appId: "1:1024342009764:web:d980d4e28bdc3d180f0331"
     };
     var app = firebase.initializeApp(firebaseConfig);
-
     // const auth = getAuth(app);
     const db = firebase.firestore(app);
     let ids = []
@@ -69,16 +68,19 @@
         alert("Error deleting program, the ID may be incorrect");
       });
     })
+
     firebase.auth().onAuthStateChanged(function (user) {
+
       if (user) {
+
         const ALLOWLIST = ["growingupaapi@gmail.com", "ehsiao08@gmail.com", "jacki.ck.king@gmail.com", "wilburwei.2008@gmail.com"];
         const EMAIL = firebase.auth().currentUser.email;
+
         if (!ALLOWLIST.includes(EMAIL)) {
           document.getElementById("main").innerHTML = "Your not allowed to be here..."
           $("#main").css("display", "block");
 
         } else {
-
           $("#main").css("display", "block");
           db.collection("programs").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
