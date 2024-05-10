@@ -12,7 +12,7 @@
 html,
 body {
   height: 100vh;
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "Nunito", sans-serif;
   width: 100%;
   margin:0;
   padding:0;
@@ -39,4 +39,12 @@ body {
   margin-left:10vw;
   font-size:22px;
   font-weight: 600;
+}
+.main-container {
+  width:100%;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction: column;
+
 }
