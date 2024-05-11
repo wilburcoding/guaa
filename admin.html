@@ -35,8 +35,9 @@
         ref.doc(id).set({
           title: $("#" + id + '2').val(),
           desc: $("#" + id + '3').val(),
-          applyp: $("#" + id + '4').val(),
-          applyv: $("#" + id + '5').val(),
+          imglink: $("#" + id + '4').val(),
+          applyp: $("#" + id + '5').val(),
+          applyv: $("#" + id + '6').val(),
         });
       }
       alert("Successful!")
@@ -50,10 +51,11 @@
         ref.doc($("#NEW1").val()).set({
           title: $("#" + id + '2').val(),
           desc: $("#" + id + '3').val(),
-          applyp: $("#" + id + '4').val(),
-          applyv: $("#" + id + '5').val(),
+          imglink: $("#" + id + '4').val(),
+          applyp: $("#" + id + '5').val(),
+          applyv: $("#" + id + '6').val(),
         });
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
           $("#NEW" + (i + 1)).val("")
         }
         window.location.reload()
@@ -88,25 +90,16 @@
               const data = doc.data();
               const id = doc.id;
               ids.push(id)
-              $("#programs").append(`
-              <div style="width:60%">
-                <table>
-  <tr>
-    <th>ID</th>
-    <th>Title</th>
-    <th>Explanation</th>
-    <th>Participant Application Link</th>
-    <th>Volunteer Application Link</th>
-  </tr>
+              $("#tab").append(`
+
   <tr>
     <td>  <input type="text" value="${id}" id="${id}1" disabled></td>
     <td>  <input type="text" value="${data.title}" id="${id}2" ></td>
     <td>  <input type="text" value="${data.desc}" id="${id}3" ></td>
-    <td>  <input type="text" value="${data.applyp}" id="${id}4" ></td>
-    <td>  <input type="text" value="${data.applyv}" id="${id}5" ></td>
+    <td>  <input type="text" value="${data.imglink}" id="${id}4" ></td>
+    <td>  <input type="text" value="${data.applyp}" id="${id}5" ></td>
+    <td>  <input type="text" value="${data.applyv}" id="${id}6" ></td>
   </tr>
-</table>
-              </div>
               `)
             });
           });
@@ -135,7 +128,18 @@
       <h2>Programs</h2>
       <button id="save1">Save</button>
       <div id="programs">
-
+        <div style="width:60%">
+          <table id="tab">
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Explanation</th>
+              <th>Image Link</th>
+              <th>Participant Application Link</th>
+              <th>Volunteer Application Link</th>
+            </tr>
+          </table>
+        </div>
       </div>
       <h4>Add New Program</h4>
       <button id="newprogram">Add New Program</button>
@@ -145,6 +149,7 @@
             <th>ID</th>
             <th>Title</th>
             <th>Explanation</th>
+            <th>Image Link</th>
             <th>Participant Application Link</th>
             <th>Volunteer Application Link</th>
           </tr>
@@ -154,6 +159,7 @@
             <td> <input type="text" id="NEW3"></td>
             <td> <input type="text" id="NEW4"></td>
             <td> <input type="text" id="NEW5"></td>
+            <td> <input type="text" id="NEW6"></td>
           </tr>
         </table>
       </div>
