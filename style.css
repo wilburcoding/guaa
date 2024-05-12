@@ -16,9 +16,53 @@ body {
   width: 100%;
   margin:0;
   padding:0;
+  z-index:-2;
 }
+
+.primary {
+  margin:5px;
+  background-color: #e8c8c1;
+  border:none;
+  margin-right:10px;
+  padding:6px 10px;
+  transition-duration: 0.3s;
+  font-size:15px;
+  border-radius:10px;
+
+}
+.secondary {
+  margin: 5px;
+  background-color: #f8e6e2;
+  border:none;
+  margin-right: 10px;
+  padding: 6px 10px;
+  font-size: 15px;
+  border-radius: 10px;
+}
+.primary:hover {
+  background-color: #f2d8d2;
+  border-radius:25px;
+}
+.program {
+  padding:5px;
+  background-color: #fef8f6;
+  border-radius: 15px;
+  display:flex;
+  flex-direction: row;
+  height:25vh;
+  transition-duration: 0.3s;
+  margin-bottom:20px;
+
+}
+.program:hover {
+  border-radius: 25px;
+}
+/* .program div {
+  border: 2px solid black;
+} */
 #main {
   display:none;
+  padding:20px;
 }
 .navBar {
   height:70px;
@@ -29,6 +73,9 @@ body {
 }
 td, tr, table {
   border:solid 1px black;
+} 
+td input {
+  width:90%;
 }
 #navLinks {
   margin-right:5vw;
@@ -40,9 +87,15 @@ td, tr, table {
 
 }
 #navLinks h4 {
-  margin-left:10vw;
+  margin-left:6vw;
   font-size:22px;
+  transition-duration: 0.5s;
   font-weight: 600;
+  padding:4px 15px;
+  border-radius:10px;
+}
+#navLinks h4:hover {
+  background-color: #f8ded8;
 }
 .main-container {
   width:100%;
@@ -51,4 +104,10 @@ td, tr, table {
   display:flex;
   flex-direction: column;
 
+}
+
+@media only screen and (max-width: 900px) {
+  #navLinks {
+    display:none;
+  }
 }

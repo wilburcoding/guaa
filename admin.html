@@ -11,6 +11,7 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
   <link rel="stylesheet" href="./style.css">
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
@@ -29,6 +30,7 @@
     // const auth = getAuth(app);
     const db = firebase.firestore(app);
     let ids = []
+    let ids2 = [];
     $("#save1").on('click', function () {
       var ref = db.collection("programs");
       for (let id of ids) {
@@ -44,6 +46,31 @@
 
 
     })
+    $("#save2").on('click', function () {
+      var ref = db.collection("blogs");
+      for (let id of ids2) {
+        ref.doc(id).set({
+          title: $("#" + id + '2').val(),
+          subtitle: $("#" + id + '3').val(),
+          author: $("#" + id + '4').val(),
+          image: $("#" + id + '5').val()
+        }, { merge: true });
+      }
+      if (currentlyEditing != null) {
+        ref.doc(currentlyEditing).set({
+          content: $("#editor").val()
+        }, { merge: true });
+      }
+      alert("Successful!")
+
+
+    })
+    var converter = new showdown.Converter()
+    let currentlyEditing = null;
+    const convert = () => $("#result").html(converter.makeHtml($("#editor").val()))
+    $("#editor").on("keyup", convert);
+    $("#neweditor").on("keyup", () => $("#result2").html(converter.makeHtml($("#neweditor").val())));
+
     $("#newprogram").on('click', function () {
       if ($("#NEW1").val().length > 3) {
         var ref = db.collection("programs");
@@ -63,6 +90,23 @@
         alert("ID must be more than 3 characters long")
       }
     })
+    $("#addblog").click(function () {
+      if ($("#BLOG1").val().length > 3) {
+        var ref = db.collection("blogs");
+        let id = "BLOG"
+        ref.doc($("#BLOG1").val()).set({
+          title: $("#" + id + '2').val(),
+          subtitle: $("#" + id + '3').val(),
+          author: $("#" + id + '4').val(),
+          image: $("#" + id + '5').val(),
+          created: Math.round(Date.now() / 1000),
+          content: $("#neweditor").val(),
+        });
+        window.location.reload()
+      } else {
+        alert("ID must be more than 3 characters long")
+      }
+    })
     $("#deleteP").on("click", function () {
       db.collection("programs").doc($("#dId").val()).delete().then(() => {
         window.location.reload()
@@ -70,12 +114,21 @@
         alert("Error deleting program, the ID may be incorrect");
       });
     })
-
+    $("#deleteB").on("click", function () {
+      db.collection("blogs").doc($("#dbId").val()).delete().then(() => {
+        window.location.reload()
+      }).catch((error) => {
+        alert("Error deleting program, the ID may be incorrect");
+      });
+    })
+    // var converter = new showdown.Converter(),
+    //   html = converter.makeHtml('# hello, markdown!')
+    // console.log(html);
     firebase.auth().onAuthStateChanged(function (user) {
 
       if (user) {
 
-        const ALLOWLIST = ["growingupaapi@gmail.com", "ehsiao08@gmail.com", "jacki.ck.king@gmail.com", "wilburwei.2008@gmail.com"];
+        const ALLOWLIST = ["growingupaapi@gmail.com", "ehsiao08@gmail.com", "jacki.ck.king@gmail.com", "wilburwei.2008@gmail.com", "ny.revvifi@gmail.com"];
         const EMAIL = firebase.auth().currentUser.email;
 
         if (!ALLOWLIST.includes(EMAIL)) {
@@ -103,6 +156,38 @@
               `)
             });
           });
+          db.collection("blogs").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              const data = doc.data();
+              const id = doc.id;
+              const created = new Date(data.created * 1000);
+              ids2.push(id)
+              $("#btable").append(`
+
+  <tr>
+    <td>  <input type="text" value="${id}" id="${id}1" disabled></td>
+    <td>  <input type="text" value="${data.title}" id="${id}2"></td>
+    <td>  <textarea id="${id}3" >${data.subtitle}</textarea></td>
+    <td>  <input type="text" value="${data.author}" id="${id}4"></td>
+    <td>  <input type="text" value="${data.image}" id="${id}5" ></td>
+    <td>  <p id="${id}6" style="width:200px;">${created}</p></td>
+    <td>  <button id="${id}7" style="width:200px;">Load in editor</button></td>
+
+  </tr>
+              `)
+              $("#" + id + "7").click(function () {
+                currentlyEditing = id;
+                $("#editor").val(data.content)
+                $("#editor").attr("disabled", false);
+                $("#linfo").html("Loaded blog with id \"" + id + "\"");
+                convert();
+              })
+
+            });
+
+          });
+
 
         }
 
@@ -125,6 +210,7 @@
     <h1>GUAA Admin</h1>
     <div id="firebaseui-auth-container"></div>
     <div id="main">
+      <hr>
       <h2>Programs</h2>
       <button id="save1">Save</button>
       <div id="programs">
@@ -166,6 +252,76 @@
       <h4>Delete Program</h4>
       <input id="dId" type="text" placeholder="Program ID">
       <button id="deleteP">Delete</button>
+      <hr>
+      <h1>Blogs</h1>
+      <button id="save2">Save</button>
+      <div id="blogs">
+        <table id="btable" style="width:100%;">
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Subtitle</th>
+            <th>Author</th>
+            <th>Image Link</th>
+            <th>Time Created</th>
+            <th>Open in Editor</th>
+
+          </tr>
+        </table>
+      </div>
+      <h2>Blog Editor</h2>
+      <p id="linfo">No post currently loaded</p>
+      <div style="display:flex;flex-direction: row;">
+        <div
+          style="width:50%;height:80vh;border:solid 2px black;display:flex;align-items: center;justify-content: center;">
+          <textarea style="width:95%;height:95%;" id="editor"
+            disabled>Press "Load in Editor" to open up a blog post to edit. Only the blog post loaded in here will be changed. </textarea>
+        </div>
+        <div
+          style="width:50%;height:80vh;border:solid 2px black;display:flex;align-items: center;justify-content: center;">
+          <div style="width:95%;height:95%;" id="result">
+
+          </div>
+        </div>
+      </div>
+      <h2>Add New Blog</h2>
+      <button id="addblog">Add Blog</button>
+      <table id="btable" style="width:100%;">
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Subtitle</th>
+          <th>Author</th>
+          <th>Image Link</th>
+        </tr>
+        <tr>
+          <td> <input type="text" id="BLOG1"></td>
+          <td> <input type="text" id="BLOG2"></td>
+          <td> <input type="text" id="BLOG3"></td>
+          <td> <input type="text" id="BLOG4"></td>
+          <td> <input type="text" id="BLOG5"></td>
+
+        </tr>
+
+
+
+      </table>
+      <div style="display:flex;flex-direction: row;">
+        <div
+          style="width:50%;height:80vh;border:solid 2px black;display:flex;align-items: center;justify-content: center;">
+          <textarea style="width:95%;height:95%;" id="neweditor"> </textarea>
+        </div>
+        <div
+          style="width:50%;height:80vh;border:solid 2px black;display:flex;align-items: center;justify-content: center;">
+          <div style="width:95%;height:95%;" id="result2">
+
+          </div>
+        </div>
+      </div>
+      <h3>Delete Blog</h3>
+      <input id="dbId" type="text" placeholder="Blog ID">
+      <button id="deleteB">Delete</button>
+
     </div>
 
 </body>

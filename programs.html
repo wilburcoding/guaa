@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GUAA</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore-compat.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="backgroundImg">
+    <img src="./assets/guaapi3.jpg" style='height: 70vh;width:100%;object-fit: cover;margin:0;' alt="" />
+  </div>
+  <div class="navBar">
+    <h1 style="margin:0;margin-left:25px;">ICON HERE</h1>
+    <div id="navLinks">
+      <h4>PROGRAMS</h4>
+      <h4>BLOG</h4>
+      <h4>OUR TEAM</h4>
+
+    </div>
+
+  </div>
+  <div class="main-container" style="justify-content: center;height:60vh;align-items: center;">
+    <div style="height:30vh;width:70vw">
+      <h1 style="color:#0A4653; font-size:110px;margin:0px;padding:0;line-height:90px;font-weight: 600;">PROGRAMS</h1>
+      <h1 style="margin:0px;font-size:30px;font-weight: 500;line-height:30px;margin-left:5px;width:65%">Some sussy
+        caption here among us among us among us</h1>
+
+    </div>
+
+  </div>
+  <div class="main-container"
+    style="padding-top:10vh; min-height:100vh;align-items: center;background-color:   #eddcd7">
+    <div style="width:70vw" id="programs">
+
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC3W2aSkpZHROW_BO2u6iWu1hIwNF8CfBw",
+      authDomain: "guaa-62ae2.firebaseapp.com",
+      projectId: "guaa-62ae2",
+      storageBucket: "guaa-62ae2.appspot.com",
+      messagingSenderId: "1024342009764",
+      appId: "1:1024342009764:web:d980d4e28bdc3d180f0331"
+    };
+    var app = firebase.initializeApp(firebaseConfig);
+    // const auth = getAuth(app);
+    const db = firebase.firestore(app);
+    db.collection("programs").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const data = doc.data()
+        //don't need id data
+        console.log(data)
+        $("#programs").append(`
+          <div class="program">
+            <div style="flex:1;padding:0;">
+              <img src="${data.imglink}" style="height: 100%;width:100%;object-fit: cover;margin:0;border-radius:15px;">
+              
+            </div> 
+            <div style="flex:3;padding:5px;margin-left:5px;">
+              <h1 style="margin:5px;">${data.title}</h1>
+              <p style="margin:5px;">${data.desc}</p>
+              <div style="display:flex;flex-direction:row;">
+                <button class="primary">Apply as Participant</button>
+                <button class="primary">Apply as Volunteer</button>
+
+              </div>
+
+            </div> 
+
+          </div>
+        `)
+
+      })
+    })
+  </script>
+</body>
+
+</html>
