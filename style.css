@@ -8,106 +8,263 @@
   z-index: -1;
 
 }
+#person {
+  width: max(30%, 200px);
+    padding:5px;
+  background-color: #f8ece9;
+  display:flex;
+  margin:10px;
+  height:65vh;
+  border-radius:10px;
+  flex-direction: column;
+  align-items: center;
+  padding-top:15px;
+  text-align: center;
+  
+  
+}
+#person h1 {
+  margin:0;
+}
+#person p {
+  margin:2px;
+}
+#team {
+  background-color: #eddcd7;
+}
+#search {
+  height: 40px;
+  width: 60%;
+  margin: 10px;
+  outline: none;
+  background-color: #fdf4f3;
+  border: solid 1px #464545;
+  padding: 4px;
+  padding-left:10px;
+  border-radius: 25px;
+  transition-duration: 0.3s;
+  font-size: 25px;
+  margin-right:3px;
+}
+
+#searchb {
+  margin: 10px;
+  margin-left:5px;
+  height: 48px;
+  padding: 10px;
+  background-color: #f2d8d2;
+  border: solid 1px #464545;
+  border-radius:25px;
+  transition-duration: 0.3s;
+
+}
+
+#searchb i {
+  font-size: 20px;
+}
+#searchb:hover {
+    background-color: rgb(240, 226, 225);
+    border-radius:15px;
+}
+
+#search:focus {
+  border-radius: 5px;
+}
 
 html,
 body {
   height: 100vh;
   font-family: "Nunito", sans-serif;
   width: 100%;
-  margin:0;
-  padding:0;
-  z-index:-2;
+  margin: 0;
+  padding: 0;
+  z-index: -2;
 }
 
 .primary {
-  margin:5px;
+  margin: 5px;
   background-color: #e8c8c1;
-  border:none;
-  margin-right:10px;
-  padding:6px 10px;
+  border: none;
+  margin-right: 10px;
+  padding: 6px 10px;
   transition-duration: 0.3s;
-  font-size:15px;
-  border-radius:10px;
+  font-size: 15px;
+  border-radius: 10px;
 
 }
+
 .secondary {
   margin: 5px;
   background-color: #f8e6e2;
-  border:none;
+  border: none;
   margin-right: 10px;
   padding: 6px 10px;
   font-size: 15px;
   border-radius: 10px;
 }
+
 .primary:hover {
   background-color: #f2d8d2;
-  border-radius:25px;
+  border-radius: 25px;
 }
+
 .program {
-  padding:5px;
+  padding: 5px;
   background-color: #fef8f6;
   border-radius: 15px;
-  display:flex;
+  display: flex;
   flex-direction: row;
-  height:25vh;
+  height: 25vh;
   transition-duration: 0.3s;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 
 }
+
+.post {
+  background-color: #fef8f6;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  width: max(40%, 200px);
+  transition-duration: 0.3s;
+  margin: 20px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  min-height: 40vh;
+
+}
+
+.post p {
+  color: rgb(83, 83, 83);
+}
+
+.post:hover {
+  border-radius: 25px;
+
+}
+
+#blogfull {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  left: 0;
+  display: none;
+  align-items: end;
+  justify-content: center;
+  z-index: 2000;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+
+#bimg {
+  width: 100%;
+}
+
+#bcontentmain {
+  width: 100%;
+  max-width: 100%;
+}
+
+#exit {
+  align-self: flex-start;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: flex;
+  color: rgb(100, 100, 100);
+  flex-direction: row;
+}
+
+#exit p {
+  transition: 0.2s;
+
+}
+
+#exit p:hover {
+  color: rgb(15, 15, 15);
+}
+
+#bcontent {
+  width: 70%;
+  border-radius: 25px 25px 0px 0px;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  background-color: rgb(250, 240, 240);
+  ;
+}
+
+#bcontent::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
 .program:hover {
   border-radius: 25px;
 }
+
 /* .program div {
   border: 2px solid black;
 } */
 #main {
-  display:none;
-  padding:20px;
+  display: none;
+  padding: 20px;
 }
+
 .navBar {
-  height:70px;
+  height: 70px;
   width: 100%;
-  margin:0;
-  display:flex;
+  margin: 0;
+  display: flex;
   align-items: center;
 }
-td, tr, table {
-  border:solid 1px black;
-} 
-td input {
-  width:90%;
+
+td,
+tr,
+table {
+  border: solid 1px black;
 }
+
+td input {
+  width: 90%;
+}
+
 #navLinks {
-  margin-right:5vw;
-  margin-left:auto;
-  display:flex;
-  
+  margin-right: 5vw;
+  margin-left: auto;
+  display: flex;
+
   flex-direction: row;
   align-items: center;
 
 }
+
 #navLinks h4 {
-  margin-left:6vw;
-  font-size:22px;
+  margin-left: 6vw;
+  font-size: 22px;
   transition-duration: 0.5s;
   font-weight: 600;
-  padding:4px 15px;
-  border-radius:10px;
+  padding: 4px 15px;
+  border-radius: 10px;
 }
+
 #navLinks h4:hover {
   background-color: #f8ded8;
 }
+
 .main-container {
-  width:100%;
-  margin:0;
-  padding:0;
-  display:flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
   flex-direction: column;
 
 }
 
 @media only screen and (max-width: 900px) {
   #navLinks {
-    display:none;
+    display: none;
   }
 }

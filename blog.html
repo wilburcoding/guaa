@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GUAA</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore-compat.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/3f34c302de.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+
+</head>
+
+<body>
+  <div class="backgroundImg">
+    <img src="./assets/guaapi3.jpg" style='height: 70vh;width:100%;object-fit: cover;margin:0;' alt="" />
+  </div>
+  <div class="navBar">
+    <h1 style="margin:0;margin-left:25px;">ICON HERE</h1>
+    <div id="navLinks">
+      <h4>PROGRAMS</h4>
+      <h4>BLOG</h4>
+      <h4>OUR TEAM</h4>
+
+    </div>
+
+  </div>
+  <div class="main-container" style="justify-content: center;height:59vh;align-items: center;">
+    <div style="height:20vh;width:70vw">
+      <h1 style="color:#0A4653; font-size:110px;margin:0px;padding:0;line-height:90px;font-weight: 600;">BLOG</h1>
+      <h1 style="margin:0px;font-size:30px;font-weight: 500;line-height:30px;margin-left:5px;width:65%">Some sussy
+        caption here among us among us among us</h1>
+
+    </div>
+
+  </div>
+  <div class="main-container"
+    style="padding-top:10vh; min-height:100vh;align-items: center;background-color:   #eddcd7">
+    <div style="width:80vw; justify-content: center;display:flex;flex-wrap: wrap;">
+      <input type="text" id="search">
+      <button id="searchb">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+
+    <div style="width:80vw; justify-content: center;display:flex;flex-wrap: wrap;" id="blogs">
+
+    </div>
+    <div style="width:80vw; justify-content: center;display:flex;flex-wrap: wrap;">
+      <button class="primary" id="more">Load More</button>
+
+    </div>
+
+  </div>
+  <div id="blogfull">
+    <div id="bcontent">
+
+
+      <div id="bimg">
+        <img id="imglink"
+          src="https://cdn1.epicgames.com/salesEvent/salesEvent/amoguslandscape_2560x1440-3fac17e8bb45d81ec9b2c24655758075"
+          style="height: 40vh;width:100%;object-fit: cover;margin:0;border-radius:15px 15px 0px 0px;">
+
+      </div>
+      <div style="display:flex;flex-direction: column;align-items: center;">
+        <div id="exit">
+          <i class="fa-solid fa-arrow-left-long" style="margin-right:5px;"></i>
+          <p style="margin:0;font-size:14px;">Return to Posts</p>
+        </div>
+        <div style="padding:10px;width:80%;margin-top:10px;">
+          <h1 style="margin:0;font-size:40px;" id="title">Some Big Long Title Here</h1>
+          <p style="margin:0;color:#656565" id="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod
+            tempor incididunt ut labore et dolore magna
+            aliqua. </p>
+          <div style="margin-top:10px;margin-bottom:10px;display:flex;flex-direction:row;">
+            <p style="margin:0;">By <span style="font-weight:800" id="author">Joe Biden</span></p>
+            <p style="margin:0;margin-left:10px;"> - </p>
+            <p style="margin:0;margin-left:10px;" id="date">April 12th, 2024</p>
+          </div>
+          <hr>
+          <div id="bcontentmain">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna
+              aliqua. Enim nec dui nunc mattis enim ut tellus elementum. At tempor commodo ullamcorper a lacus
+              vestibulum sed. Mi
+              proin sed libero enim sed faucibus turpis in eu. Vitae tempus quam pellentesque nec nam aliquam sem et.
+              Sed risus
+              pretium quam vulputate dignissim suspendisse in est ante. Condimentum mattis pellentesque id nibh tortor.
+              Libero
+              volutpat sed cras ornare arcu. Integer eget aliquet nibh praesent. Integer feugiat scelerisque varius
+              morbi enim.
+              Feugiat pretium nibh ipsum consequat nisl vel. Amet nisl purus in mollis nunc sed id. Fringilla ut morbi
+              tincidunt
+              augue
+              interdum velit. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Ac tortor vitae purus
+              faucibus
+              ornare suspendisse sed. Arcu vitae elementum curabitur vitae nunc sed velit. Arcu odio ut sem nulla
+              pharetra diam sit.
+
+              Molestie ac feugiat sed lectus vestibulum mattis. Justo nec ultrices dui sapien eget mi proin sed libero.
+              Etiam erat
+              velit scelerisque in dictum. Neque egestas congue quisque egestas diam in arcu. Nunc eget lorem dolor sed.
+              Nunc
+              consequat interdum varius sit amet mattis vulputate enim nulla. Mauris nunc congue nisi vitae suscipit
+              tellus mauris.
+              Felis bibendum ut tristique et. Nec feugiat in fermentum posuere urna nec tincidunt. Semper viverra nam
+              libero justo
+              laoreet. Tortor condimentum lacinia quis vel eros donec.
+
+              Tellus mauris a diam maecenas sed enim ut. Tortor pretium viverra suspendisse potenti nullam ac.
+              Suspendisse interdum
+              consectetur libero id faucibus nisl tincidunt. Tellus cras adipiscing enim eu turpis egestas pretium.
+              Aliquam
+              vestibulum
+              morbi blandit cursus. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Proin sagittis
+              nisl rhoncus
+              mattis rhoncus urna neque. Commodo viverra maecenas accumsan lacus. Egestas pretium aenean pharetra magna
+              ac placerat.
+              Ultricies tristique nulla aliquet enim tortor at auctor urna nunc. Eu turpis egestas pretium aenean
+              pharetra.
+              Consequat
+              ac felis donec et odio. Facilisi nullam vehicula ipsum a arcu cursus vitae. Lorem mollis aliquam ut
+              porttitor. Elit
+              eget
+              gravida cum sociis natoque penatibus et magnis. Commodo nulla facilisi nullam vehicula. At quis risus sed
+              vulputate
+              odio
+              ut enim blandit. Quis lectus nulla at volutpat diam ut venenatis tellus. Sit amet massa vitae tortor.
+
+              Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sit amet aliquam id diam maecenas
+              ultricies mi
+              eget. Cras ornare arcu dui vivamus. Sit amet consectetur adipiscing elit pellentesque habitant. Non enim
+              praesent
+              elementum facilisis leo vel fringilla. Dui faucibus in ornare quam viverra. Sit amet nisl purus in mollis
+              nunc sed id
+              semper. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Orci sagittis eu volutpat odio
+              facilisis mauris
+              sit. Ullamcorper a lacus vestibulum sed arcu non.
+
+              Fames ac turpis egestas integer eget aliquet nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed
+              velit.
+              Quisque
+              egestas diam in arcu cursus euismod quis viverra. Ut pharetra sit amet aliquam id diam maecenas. Egestas
+              dui id ornare
+              arcu odio ut sem nulla. Convallis posuere morbi leo urna molestie at elementum eu facilisis. Fames ac
+              turpis egestas
+              sed
+              tempus urna. Elementum integer enim neque volutpat. Tellus pellentesque eu tincidunt tortor. Lobortis
+              elementum nibh
+              tellus molestie nunc non. Convallis tellus id interdum velit laoreet id donec ultrices. Leo duis ut diam
+              quam nulla
+              porttitor. Auctor elit sed vulputate mi sit. Morbi leo urna molestie at. Convallis convallis tellus id
+              interdum velit
+              laoreet id donec. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Amet mauris
+              commodo quis
+              imperdiet massa tincidunt nunc. Eget gravida cum sociis natoque penatibus et magnis dis parturient.
+              Praesent semper
+              feugiat nibh sed pulvinar proin gravida hendrerit.
+            </p>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+    var converter = new showdown.Converter()
+    const convert = (data) => $("#bcontentmain").html(converter.makeHtml(data))
+    const firebaseConfig = {
+      apiKey: "AIzaSyC3W2aSkpZHROW_BO2u6iWu1hIwNF8CfBw",
+      authDomain: "guaa-62ae2.firebaseapp.com",
+      projectId: "guaa-62ae2",
+      storageBucket: "guaa-62ae2.appspot.com",
+      messagingSenderId: "1024342009764",
+      appId: "1:1024342009764:web:d980d4e28bdc3d180f0331"
+    };
+    var app = firebase.initializeApp(firebaseConfig);
+    // const auth = getAuth(app);
+    const db = firebase.firestore(app);
+    let loaded = 0;
+    let search = "";
+    let posts = {}
+    var items = []
+    db.collection("blogs").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const data = doc.data()
+        posts[doc.id] = data;
+      })
+
+
+      // Create items array
+      items = Object.keys(posts)
+
+      // Sort the array based on the second element
+      items.sort(function (first, second) {
+        return posts[second].created - posts[first].created;
+      });
+      let count = 0;
+      for (var item of items) {
+        count++;
+        if (count > 4) {
+          loaded = 4;
+          return;
+        }
+        let data = posts[item]
+        const date = new Date(data.created * 1000);
+        const abr = (date.getDate() <= 10 || date.getDate() >= 20 ? (date.getDate() % 10 == 1 ? "st" : (date.getDate() % 10 == 2 ? "nd" : (date.getDate() % 10 == 3 ? "rd" : "th"))) : "th");
+        const months = ["January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"
+        ];
+        const calcDate = (months[date.getMonth()] + " " + date.getDate() + abr + ", " + date.getFullYear())
+        $("#blogs").append(`
+          <div class="post" id="${item}">
+            <div style="flex:1;padding:0;">
+              <img src="${data.image}" style="height: 30vh;width:100%;object-fit: cover;margin:0;border-radius:15px;">
+              
+            </div> 
+            <div style="flex:1;padding:0;">
+              <div style="margin:10px;">
+                <h1 style="font-size:30px;margin:0;">${data.title}</h1>  
+                <p style="font-size:20px;margin:0;">${data.subtitle}</p> 
+
+              </div>              
+            </div>
+              <hr style="width:100%;  border-top: 1.2px solid #C3C3C3">
+
+            <div style="padding:2px 15px;margin-top:10px;margin-bottom:10px;display:flex;flex-direction:row;">
+              <p style="margin:0;">By <span style="font-weight:800">${(data.author).toUpperCase()}</span></p> 
+              <p style="margin:0;margin-left:auto;margin-right:10px;">${(months[date.getMonth()] + " " + date.getDate() + abr + ", " + date.getFullYear())}</p>
+            </div> 
+          </div>
+        `)
+
+
+        $("#" + item).click(function () {
+          $("#title").text(data.title)
+          $("#subtitle").text(data.subtitle);
+          $("#author").text(data.author);
+          $("#imglink").attr("src", data.image)
+          $("#date").text(calcDate);
+          convert(data.content)
+          $("#blogfull").css("display", "flex")
+          $("#blogfull").animate({
+            opacity: 1
+          }, 200)
+        })
+
+      }
+    })
+    $("#exit").click(function () {
+      $("#blogfull").animate({
+        opacity: 0,
+      }, 200, function () {
+        $("#blogfull").css("display", "none")
+      })
+    })
+    $("#searchb").click(function () {
+      console.log('ea');
+      search = $("#search").val()
+      loaded = 0;
+      console.log("updating")
+
+      $("#blogs").html("")
+      console.log("updating")
+
+      update();
+    })
+    function update() {
+      let count = 0;
+      for (var item of items) {
+        count++;
+        if (count <= loaded) {
+          continue
+        }
+        if (count > loaded + 4) {
+          loaded = count-1;
+          return;
+        }
+        let data = posts[item]
+
+        if (String(data.content).includes(search) || String(data.title).includes(search) || String(data.subtitle).includes(search)) {
+          const date = new Date(data.created * 1000);
+          const abr = (date.getDate() <= 10 || date.getDate() >= 20 ? (date.getDate() % 10 == 1 ? "st" : (date.getDate() % 10 == 2 ? "nd" : (date.getDate() % 10 == 3 ? "rd" : "th"))) : "th");
+          const months = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+          ];
+          const calcDate = (months[date.getMonth()] + " " + date.getDate() + abr + ", " + date.getFullYear())
+          $("#blogs").append(`
+          <div class="post" id="${item}">
+            <div style="flex:1;padding:0;">
+              <img src="${data.image}" style="height: 30vh;width:100%;object-fit: cover;margin:0;border-radius:15px;">
+              
+            </div> 
+            <div style="flex:1;padding:0;">
+              <div style="margin:10px;">
+                <h1 style="font-size:30px;margin:0;">${data.title}</h1>  
+                <p style="font-size:20px;margin:0;">${data.subtitle}</p> 
+
+              </div>              
+            </div>
+              <hr style="width:100%;  border-top: 1.2px solid #C3C3C3">
+
+            <div style="padding:2px 15px;margin-top:10px;margin-bottom:10px;display:flex;flex-direction:row;">
+              <p style="margin:0;">By <span style="font-weight:800">${(data.author).toUpperCase()}</span></p> 
+              <p style="margin:0;margin-left:auto;margin-right:10px;">${(months[date.getMonth()] + " " + date.getDate() + abr + ", " + date.getFullYear())}</p>
+            </div> 
+          </div>
+        `)
+
+
+          $("#" + item).click(function () {
+            $("#title").text(data.title)
+            $("#subtitle").text(data.subtitle);
+            $("#author").text(data.author);
+            $("#imglink").attr("src", data.image)
+            $("#date").text(calcDate);
+            convert(data.content)
+            $("#blogfull").css("display", "flex")
+            $("#blogfull").animate({
+              opacity: 1
+            }, 200)
+          })
+        }
+      }
+
+    }
+    $("#more").click(() => update());
+  </script>
+</body>
+
+</html>

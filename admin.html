@@ -101,8 +101,10 @@
           image: $("#" + id + '5').val(),
           created: Math.round(Date.now() / 1000),
           content: $("#neweditor").val(),
+        }).then(() => {
+          window.location.reload();
         });
-        window.location.reload()
+        
       } else {
         alert("ID must be more than 3 characters long")
       }
