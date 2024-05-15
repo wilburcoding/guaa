@@ -277,8 +277,65 @@ td input {
 
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px) {
   #navLinks {
     display: none;
   }
+  #fmaindiv {
+    width:90vw !important;
+    height:50vh;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #fmain1 {
+    font-size:60px !important;
+    line-height: 60px !important;
+
+  }
+  #bbig {
+
+    font-size:70px !important;
+    line-height: 70px !important;
+  }
+  #fmain2 {
+    font-size:40px !important;
+    line-height: 40px !important;
+  }
+  #fmain p {
+    font-size:15px !important;
+    margin-top:5px;
+  }
+  #psub {
+     font-size:20px !important;
+     line-height: 25px !important;
+     width:80% !important;
+  }
+  .program {
+    flex-direction: column;
+    height:auto;
+  }
+  /* .program img {
+    height:50% !important;
+    width:100% !important;
+  } */
+  .sdiv {
+    width:90% !important;
+  }
+  #blogs {
+    width:100% !important;
+  }
+  .post {
+    width:70%;
+  }
+  #search {
+    width:70%;
+  }
+  #person {
+    width:80%;
+  }
+  .people {
+    width:95vw !important;
+  }
+  
 }

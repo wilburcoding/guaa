@@ -37,17 +37,19 @@
 
   </div>
   <div class="main-container" style="justify-content: center;height:59vh;align-items: center;">
-    <div style="height:20vh;width:70vw">
-      <h1 style="color:#0A4653; font-size:110px;margin:0px;padding:0;line-height:90px;font-weight: 600;">BLOG</h1>
-      <h1 style="margin:0px;font-size:30px;font-weight: 500;line-height:30px;margin-left:5px;width:65%">Some sussy
+    <div style="height:30vh;width:70vw" id="fmaindiv">
+      <h1 style="color:#0A4653; font-size:110px;margin:0px;padding:0;line-height:90px;font-weight: 600;" class="bbig">
+        BLOG</h1>
+      <h1 style="margin:0px;font-size:30px;font-weight: 500;line-height:30px;margin-left:5px;width:65%" id="psub">Some
+        sussy
         caption here among us among us among us</h1>
-
+  
     </div>
-
+  
   </div>
   <div class="main-container"
     style="padding-top:10vh; min-height:100vh;align-items: center;background-color:   #eddcd7">
-    <div style="width:80vw; justify-content: center;display:flex;flex-wrap: wrap;">
+    <div style="width:80vw; justify-content: center;display:flex;flex-wrap: wrap;" class="sdiv">
       <input type="text" id="search">
       <button id="searchb">
         <i class="fa-solid fa-magnifying-glass"></i>
@@ -246,8 +248,8 @@
               <hr style="width:100%;  border-top: 1.2px solid #C3C3C3">
 
             <div style="padding:2px 15px;margin-top:10px;margin-bottom:10px;display:flex;flex-direction:row;">
-              <p style="margin:0;">By <span style="font-weight:800">${(data.author).toUpperCase()}</span></p> 
-              <p style="margin:0;margin-left:auto;margin-right:10px;">${(months[date.getMonth()] + " " + date.getDate() + abr + ", " + date.getFullYear())}</p>
+              <p style="margin:0;margin-right:5px;">By <span style="font-weight:800">${(data.author).toUpperCase()}</span></p> 
+              <p style="margin:0;margin-left:auto;margin-right:5px;">${(months[date.getMonth()] + " " + date.getDate() + abr + ", " + date.getFullYear())}</p>
             </div> 
           </div>
         `)
@@ -293,8 +295,9 @@
         if (count <= loaded) {
           continue
         }
+        loaded = count;
         if (count > loaded + 4) {
-          loaded = count - 1;
+          console.log(count);
           return;
         }
         let data = posts[item]
