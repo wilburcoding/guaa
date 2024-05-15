@@ -23,6 +23,20 @@
   
   
 }
+#footer {
+  width: 100%;
+  height:100px;
+  margin:0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5c2b7;
+}
+#footer p {
+  margin:0;
+  font-size:20px;
+
+}
 #person h1 {
   margin:0;
 }

@@ -57,7 +57,7 @@
     <div style="width:80vw; justify-content: center;display:flex;flex-wrap: wrap;" id="blogs">
 
     </div>
-    <div style="width:80vw; justify-content: center;display:flex;flex-wrap: wrap;">
+    <div style="width:80vw; justify-content: center;display:flex;flex-wrap: wrap;margin-bottom:30vh">
       <button class="primary" id="more">Load More</button>
 
     </div>
@@ -179,6 +179,9 @@
 
     </div>
   </div>
+  <div id="footer">
+    <p>Designed by <span style="font-weight: 800;">Revvifi NY</span></p>
+  </div>
   <script src="script.js"></script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
@@ -291,7 +294,7 @@
           continue
         }
         if (count > loaded + 4) {
-          loaded = count-1;
+          loaded = count - 1;
           return;
         }
         let data = posts[item]
