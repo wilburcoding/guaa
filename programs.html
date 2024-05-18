@@ -30,13 +30,13 @@
       <h4 class="prg">PROGRAMS</h4>
       <h4 class="blg">BLOG</h4>
       <h4 class="tem">OUR TEAM</h4>
-  
+
     </div>
     <div id="mbar">
       <i class="fa-solid fa-bars"></i>
-  
+
     </div>
-  
+
   </div>
   <div id="menu">
     <h4 class="menulink prg" style="margin:0;margin-left:100px">PROGRAMS</h4>
@@ -82,7 +82,7 @@
     db.collection("programs").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const data = doc.data()
-        //don't need id data
+        const id = doc.id;
         console.log(data)
         $("#programs").append(`
           <div class="program">
@@ -94,8 +94,8 @@
               <h1 style="margin:5px;">${data.title}</h1>
               <p style="margin:5px;">${data.desc}</p>
               <div style="display:flex;flex-direction:row;">
-                <button class="primary">Apply as Participant</button>
-                <button class="primary">Apply as Volunteer</button>
+                <button class="primary" id="${id}p">Apply as Participant</button>
+                <button class="primary" id="${id}v">Apply as Volunteer</button>
 
               </div>
 
@@ -103,8 +103,15 @@
 
           </div>
         `)
+        $("#" + id + "p").click(function () {
+          window.open(data.applyp)
+        })
+        $("#" + id + "v").click(function () {
+          window.open(data.applyv)
+        })
 
       })
+
     })
   </script>
 </body>

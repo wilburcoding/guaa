@@ -9,18 +9,18 @@
 
 }
 
-#person {
+.person {
   width: max(30%, 200px);
   padding: 5px;
   background-color: #ffffff;
   display: flex;
   margin: 10px;
-  height: 65vh;
   border-radius: 10px;
   flex-direction: column;
   align-items: center;
   padding-top: 15px;
   text-align: center;
+  max-width:400px;
 
 
 }
@@ -41,11 +41,11 @@
 
 }
 
-#person h1 {
+.person h1 {
   margin: 0;
 }
 
-#person p {
+.person p {
   margin: 2px;
 }
 
@@ -186,6 +186,7 @@ body {
 #bcontentmain {
   width: 100%;
   max-width: 100%;
+  margin-bottom:20vh;
 }
 
 #exit {
@@ -413,7 +414,7 @@ td input {
   }
 
   .post {
-    width: 70%;
+    width: 85%;
     max-width: 400px;
   }
 
@@ -421,7 +422,7 @@ td input {
     width: 70%;
   }
 
-  #person {
+  .person {
     width: 80%;
   }
 
@@ -436,6 +437,9 @@ td input {
 
   #cmain {
     height: 89vh !important;
+  }
+  #bcontent {
+    width:100%;
   }
 
 
